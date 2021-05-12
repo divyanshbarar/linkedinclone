@@ -2,6 +2,8 @@ import React from 'react'
 import styled from "styled-components"
 import Header from './Header'
 import Leftside from './Leftside'
+import Main from './Main'
+import Rightside from './Rightside'
 
 function Home() {
     return (
@@ -13,10 +15,10 @@ function Home() {
                         <Leftside />
                     </div>
                     <div>
-                        middle
+                        <Main />
                     </div>
                     <div>
-                        right
+                        <Rightside />
                     </div>
                 </Layout>
 

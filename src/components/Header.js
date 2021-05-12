@@ -222,6 +222,7 @@ a{  align-items:center;
     min-width:80px;
     position:relative;
     text-decoration:none;
+    cursor:pointer;
 
     span{
         color:rgba(0,0,0,0.6);
@@ -246,6 +247,7 @@ a{
 `
 const NavListm = styled.li`
 display:flex;
+
 align-items:center;
 a{  align-items:center;
 margin-right:10px;
@@ -286,6 +288,7 @@ a{
         font-weight:600;
     }
 }
+}
 @media(max-width:768px){
     &:hover, &:active{
 a{
@@ -300,6 +303,7 @@ a{
 
 `
 const SignOut = styled.div`
+
 position: absolute;
 top:65px;
 background:white;
@@ -324,6 +328,7 @@ display:none;
 const User = styled.div`
 a{
     display:flex;
+    cursor:pointer;
     margin-left:10px;
     flex-direction:column;
     .user__image{
