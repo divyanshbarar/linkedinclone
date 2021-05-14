@@ -4,12 +4,16 @@ import Header from './Header'
 import Leftside from './Leftside'
 import Main from './Main'
 import Rightside from './Rightside'
+import { connect } from "react-redux"
+import { Redirect } from 'react-router'
 
-function Home() {
+function Home(props) {
+
     return (
         <div>
             <Header />
             <Container>
+                {!props.user && <Redirect to="/" />}
                 <Layout>
                     <div>
                         <Leftside />
@@ -51,4 +55,13 @@ grid-template-columns: minmax(0, 5fr) minmax(0, 12fr) minmax(300px, 7fr);
   }
 `
 
-export default Home
+const mapStateToProps = (state) => {
+    return {
+        user: state.userState.user
+    }
+}
+
+
+
+export default connect(mapStateToProps,)(Home)
+

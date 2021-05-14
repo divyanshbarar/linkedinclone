@@ -5,9 +5,16 @@ import loginlogo from "./login-logo.svg"
 import loginhero from "./login-hero.svg"
 import google from "./google.svg"
 
-function Login() {
+import { connect } from "react-redux"
+import { signInAPI } from "../actions"
+import { Redirect } from 'react-router'
+function Login(props) {
     return (
         <Container>
+
+            {
+                props.user && <Redirect to="/home" />
+            }
             <Nav>
                 <a href="/">
                     <img src={loginlogo} alt="" />
@@ -17,7 +24,7 @@ function Login() {
                     <Join>
                         Join now
                     </Join>
-                    <SignIn>
+                    <SignIn onClick={() => props.signIn()}>
                         Sign In
                     </SignIn>
                 </div>
@@ -30,7 +37,7 @@ function Login() {
                 </Hero>
 
                 <Form>
-                    <Google>
+                    <Google onClick={() => props.signIn()}>
                         <img src={google} alt="" />
                         Sign in with Google
                     </Google>
@@ -203,5 +210,18 @@ cursor: pointer;
     left:0;
 }
 `
+const mapStateToProps = (state) => {
+    return {
 
-export default Login
+        user: state.userState.user,
+    }
+}
+
+const mapDispatchToProps = (dispatch) => ({
+
+    signIn: () => dispatch(signInAPI()),
+})
+
+
+
+export default connect(mapStateToProps, mapDispatchToProps)(Login)

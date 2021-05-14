@@ -12,6 +12,7 @@ import like from "./like.png"
 import comment from "./comments.png"
 import share from "./share.png"
 import send from "./send.png"
+import PostModal from "./PostModal"
 
 function Main() {
     return (
@@ -97,6 +98,7 @@ function Main() {
                 </div>
 
             </Article>
+            <PostModal />
         </Container>
     )
 }
@@ -179,7 +181,7 @@ overflow:hidden;
 .socialbuttons{
     padding-bottom:10px;
     button{
-        padding:8px 12px;
+        padding:8px 25px;
         border-radius:8px;
         display:inline-flex;
         align-items:center;

@@ -10,15 +10,16 @@ import navwork from "./nav-work.svg"
 import navmessage from "./nav-messaging.svg"
 import user from "./user.svg"
 import down from "./down-icon.svg"
+import { connect } from 'react-redux'
+
+
+import { signOutAPI } from "../actions"
 
 
 
 
 
-
-
-
-function Header() {
+function Header(props) {
     return (
         <Container>
             <Content>
@@ -90,11 +91,12 @@ function Header() {
                 </NavListm>
                 <User>
                     <a>
-                        <img className="user__image" src={user} alt="" />
+                        {props.user && props.user.photoURL ? (<img className="user__image" src={props.user.photoURL} alt="" />) :
+                            (<img className="user__image" src={user} alt="" />)}
                         {/* <span>Me</span> */}
                         <img src={down} alt="" />
                     </a>
-                    <SignOut>
+                    <SignOut onClick={() => props.signOut()}>
                         <a >Sign Out</a>
 
                     </SignOut>
@@ -305,7 +307,7 @@ a{
 const SignOut = styled.div`
 
 position: absolute;
-top:65px;
+top:55px;
 background:white;
 border-radius:2px;
 width:100px;
@@ -364,5 +366,15 @@ margin-right:10px;
 `
 
 
+const mapStateToProps = (state) => {
+    return {
+        user: state.userState.user
+    }
+}
 
-export default Header
+const mapDispatchToProps = (dispatch) => ({
+    signOut: () => dispatch(signOutAPI()),
+})
+
+
+export default connect(mapStateToProps, mapDispatchToProps)(Header)
