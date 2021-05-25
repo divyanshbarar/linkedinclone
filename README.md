@@ -1,5 +1,8 @@
 # Getting Started with Create React App
 
+<img src="https://media-exp1.licdn.com/dms/image/C5622AQH3rz6F49ur-A/feedshare-shrink_1280/0/1621870692451?e=1625097600&v=beta&t=7wA1i1Nw8xoPZnfTzeaw6CT9NFlSz6xgTa29VibJmLw" alt="" />
+
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
